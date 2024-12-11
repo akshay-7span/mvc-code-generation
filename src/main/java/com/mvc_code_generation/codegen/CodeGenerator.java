@@ -9,16 +9,19 @@ public class CodeGenerator {
         String basePackage = "com.mvc_code_generation"; // You can make this dynamic as needed
 
         String[] ddls = {
-                "CREATE TABLE User (\n" +
-                        "  id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,\n" +
-                        "  username VARCHAR(255) NOT NULL,\n" +
-                        "  email VARCHAR(255) NOT NULL,\n" +
-                        "  password VARCHAR(255) NOT NULL,\n" +
-                        "  isActive BOOLEAN DEFAULT FALSE,\n" +
-                        "  otp VARCHAR(255),\n" +
-                        "  isVerified BOOLEAN DEFAULT FALSE\n" +
-                        ");\n"
+        """
+        CREATE TABLE User (
+        id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        username VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL,
+        password VARCHAR(255) NOT NULL,
+        isActive BOOLEAN DEFAULT FALSE,
+        otp VARCHAR(255),
+        isVerified BOOLEAN DEFAULT FALSE
+        );
+        """
         };
+
 
         for (String ddl : ddls) {
             String tableName = parseTableName(ddl);
